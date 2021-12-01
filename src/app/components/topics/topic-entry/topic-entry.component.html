@@ -1,0 +1,31 @@
+<div class="grid grid-cols-1 gap-6 w-72">
+  <form [formGroup]="form" (ngSubmit)="submit(foci)">
+    <label class="block" for="description">
+      <span>Description</span>
+      <input
+        #foci
+        type="text"
+        class="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-gray-400 bg-transparent"
+        [ngClass]="{ 'border-red-400': description?.errors && (description?.touched || description?.dirty) }"
+        id="description"
+        formControlName="description"
+      />
+      <div
+        class="bg-red-500 text-gray-200 rounded p-3 mt-2"
+        *ngIf="description?.errors && (description?.touched || description?.dirty)"
+      >
+        <p *ngIf="description?.hasError('required')">We need a description</p>
+        <p *ngIf="description?.hasError('maxlength')">This is too long for a description</p>
+        <p *ngIf="description?.hasError('exists')">That Topic Already Exists</p>
+        <p *ngIf="description?.hasError('noReact')">Not interested in that.</p>
+      </div>
+    </label>
+    <div>
+      <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-md mt-2" type="submit">
+        Add
+      </button>
+    </div>
+  </form>
+</div>
+
+<pre> {{ description?.errors | json }}</pre>

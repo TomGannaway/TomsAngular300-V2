@@ -1,0 +1,20 @@
+<p>Topics</p>
+<div class="flex space-x-2">
+  <ng-container *ngFor="let topic of topics$ | async">
+    <span
+      *ngIf="topic.meta.isTemporary"
+      class="px-3 font-medium text-base bg-purple-200 text-white rounded-full py-1.5 mb-2"
+    >
+      {{ topic.entity.description }} (saving...)
+    </span>
+    <button
+      *ngIf="!topic.meta.isTemporary"
+      (click)="doSomething(topic.entity)"
+      class="px-3 font-medium text-base bg-purple-500 text-white rounded-full py-1.5 mb-2"
+    >
+      {{ topic.entity.description }}
+    </button>
+  </ng-container>
+</div>
+
+<app-topic-entry></app-topic-entry>

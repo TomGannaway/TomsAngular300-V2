@@ -1,0 +1,6 @@
+<ng-container *ngIf="(model$ | async)?.hasError">
+  <div class="border-3 border-yellow-300 bg-red-600">
+    <p class="font-extrabold">There was an error!</p>
+    <p>{{ (model$ | async)?.message }}</p>
+  </div>
+</ng-container>

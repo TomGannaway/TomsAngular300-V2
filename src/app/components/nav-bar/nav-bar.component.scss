@@ -1,0 +1,11 @@
+.btn-link {
+  @apply mr-3 px-3   block mt-3  font-normal;
+}
+
+.btn-link:hover {
+  @apply font-extrabold;
+}
+
+.btn-link.active {
+  @apply font-bold;
+}

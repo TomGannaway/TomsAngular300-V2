@@ -1,0 +1,27 @@
+<div class="w-96" *ngIf="!loaded">
+  <ngx-skeleton-loader
+    *ngIf="dark$ | async"
+    [theme]="theme"
+    count="4"
+    appearance="line"
+    animation="progress-dark"
+  >
+  </ngx-skeleton-loader>
+  <ngx-skeleton-loader
+    *ngIf="(dark$ | async) === false"
+    [theme]="theme"
+    count="4"
+    appearance="line"
+    animation="progress"
+  >
+  </ngx-skeleton-loader>
+</div>
+<ul *ngIf="loaded">
+  <li *ngFor="let order of orders" class="banded-list">
+    <span class="text-lg">Id: {{ order.id }} </span>
+    <span>Date: {{ order.date | date: 'mediumDate' }}</span>
+    <span class=""
+      >Fulfilled: {{ order.fulfilled | booleanFormat: 'Shipped':'Pending' }}</span
+    >
+  </li>
+</ul>

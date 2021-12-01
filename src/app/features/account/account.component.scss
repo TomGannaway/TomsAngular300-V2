@@ -1,0 +1,7 @@
+.banded-list {
+  @apply border-t-2 border-gray-200 pt-3 mt-3;
+}
+
+.banded-list span {
+  @apply block;
+}

@@ -1,0 +1,17 @@
+{
+  "printWidth": 82,
+  "tabWidth": 2,
+  "endOfLine": "auto",
+  "singleQuote": true,
+  "quoteProps": "consistent",
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "overrides": [
+    {
+      "files": ["*.md", "*.json", "*.conf.js"],
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
+}
